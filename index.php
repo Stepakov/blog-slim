@@ -27,4 +27,12 @@ $app->get('/about', function (Request $request, Response $response, $args) use (
     return $response;
 });
 
+$app->get('/post/{url_key}', function (Request $request, Response $response, $args) use ( $twig ) {
+    $result = $twig->render( 'post.twig', [
+        'urlKey' => $args[ 'url_key' ]
+    ] );
+    $response->getBody()->write( $result );
+    return $response;
+});
+
 $app->run();
