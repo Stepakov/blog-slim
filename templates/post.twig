@@ -1,27 +1,15 @@
 {% extends( 'base.twig' ) %}
 {% block body %}
 
-    <img src="https://dummyimage.com/1200x400/3340b0/a69042.jpg" class="card-img-top" alt="...">
+    <img src="{{ post.image_path }}" class="card-img-top" alt="...">
 
-    <h2 class="title">Post title</h2>
-    <p class="text"><small class="text-muted">Author name | March 1, 2023</small></p>
+    <h2 class="title">{{ post.title|escape }}</h2>
+    <p class="text"><small class="text-muted">Author name | {{ post.published_date | date( "F d, Y") }}</small></p>
 
     <div class="container">
         <div class="row">
-            <p class="text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-            </p>
-            <p class="text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-            </p>
-            <p class="text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
+            <p>
+                {{ post.content | raw }}
             </p>
 
         </div>
